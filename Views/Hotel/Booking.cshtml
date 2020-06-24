@@ -1,0 +1,211 @@
+﻿@model RoleBasedAuthanticationInMvc.Models.ProductModel
+@{
+    ViewBag.Title = "Booking";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+
+<!-- Page title --->
+<section class="background-grey-1 padding-tb-25px text-grey-4">
+    <div class="container">
+        <h6 class="font-weight-300 text-capitalize float-md-left font-2 padding-tb-10px">Hotel Booking</h6>
+        <ol class="breadcrumb z-index-2 position-relative no-background padding-tb-10px padding-lr-0px  margin-0px float-md-right">
+            <li><a href="@Url.Action("Index", "Demo")" class="text-grey-4">Home</a></li>
+            <li><a href="@Url.Action("Index", "Hotel")" class="text-grey-4">Hotel List</a></li>
+            <li class="active">Hotel Booking</li>
+        </ol>
+        <div class="clearfix"></div>
+    </div>
+</section>
+<!-- // Page title --->
+<!-- page output -->
+@using (Html.BeginForm("Booking", "Hotel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="padding-tb-40px background-light-grey">
+    
+        <div class="container">
+            <div class="row justify-content-center">
+
+                <div class="col-lg-9">
+                    @Html.HiddenFor(model => model.Product.ProId)
+
+                    <!-- Hotel -->
+                    <div class="background-white border-bottom-1 border-grey-1 with-hover box-shadow-hover margin-bottom-40px">
+                        <div class="row no-gutters">
+                            <div class="col-lg-4">
+                                <div class="hotel-img position-relative">
+                                    <img src="@Url.Content(Model.Product.Image)" alt="">
+                                    <div class="hover-option background-main-color opacity-6">
+                                        <h3 class="text-center text-white padding-top-n-25 "><i class="fa fa-building-o opacity-10"></i></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="padding-30px">
+                                    <h3 class="text-uppercase text-medium font-weight-600"><a href="#" class="text-dark">@Model.Product.Name</a></h3>
+                                    <small class="text-uppercase text-extra-small">
+                                        <a href="#" class="text-grey-4">
+                                            <i class="fa fa-map-marker margin-right-5px"></i>
+                                            <span class="text-third-color margin-right-5px">@Model.Product.Country.CountryName</span>@Model.Product.State.StateName
+                                        </a>
+                                    </small>
+                                    <div class="claerfix"></div>
+                                    <a href="#" class="float-lg-right btn-sm btn-lg background-third-color text-white text-center font-weight-bold text-uppercase margin-top-0px">Change Hotel </a>
+
+                                    <i class="d-block padding-tb-8px text-grey-2 ">@Model.Product.Description </i>
+                                    <div class="margin-bottom-8px text-uppercase text-extra-small">
+                                        <strong class="text-medium text-third-color padding-right-5px font-weight-bold">$500</strong>Person
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // Hotel -->
+                    <!-- form -->
+                    <div class="background-white border border-grey-1 padding-30px margin-tb-30px">
+                        <h3 class="text-uppercase text-medium font-weight-700 border-bottom-1 border-second-color  padding-bottom-8px">Product Billing Detais</h3>
+                        <div class="padding-top-10px">
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputName">Full Name</label>
+                                    @Html.EditorFor(model => model.BookingDetail.Name, new { htmlAttributes = new { @class = "form-control" } })
+
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Last Name </label>
+                                    @Html.EditorFor(model => model.BookingDetail.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputName">Email </label>
+                                    @Html.EditorFor(model => model.BookingDetail.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Mobile  </label>
+                                    @Html.EditorFor(model => model.BookingDetail.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputName">State  </label>
+                                    @Html.DropDownListFor(model => model.BookingDetail.StateId, (IEnumerable<SelectListItem>)ViewBag.StateList, "--Select--", htmlAttributes: new { @class = "form-control" })
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">City   </label>
+                                    @*@Html.DropDownList("CityId", (IEnumerable<SelectListItem>)ViewBag.CityList, htmlAttributes: new { @class = "form-control" })*@
+                                    @if (ViewBag.CitySelectList != null)
+                                    {
+
+                                        @Html.DropDownListFor(model => model.BookingDetail.CityId, (IEnumerable<SelectListItem>)ViewBag.CitySelectList, htmlAttributes: new { @class = "form-control" })
+                                    }
+                                    else
+                                    {
+                                        @Html.DropDownListFor(model => model.BookingDetail.CityId, new SelectList(Enumerable.Empty<SelectListItem>(), "CityId", "CityName"), (ViewBag.NewlegalEntity != null && ViewBag.NewlegalEntity != "") ? (object)new { @disabled = "disabled", @class = "form-control" } : new { @class = "form-control" })
+                                    }
+                                </div>
+                            </div>
+
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">CheckInDate   </label>
+                                    @Html.EditorFor(model => model.BookingDetail.CheckInDate, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">CheckOutDate   </label>
+                                    @Html.EditorFor(model => model.BookingDetail.CheckOutDate, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">NoOfPeople   </label>
+                                    @Html.EditorFor(model => model.BookingDetail.NoOfPeople, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">NoOfRoom   </label>
+                                    @Html.EditorFor(model => model.BookingDetail.NoOfRoom, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputName">AlternateMobile  </label>
+                                    @Html.EditorFor(model => model.BookingDetail.AlternateMobile, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputName">Charges  </label>
+                                    @Html.EditorFor(model => model.BookingDetail.Charges, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Address</label>
+                                @Html.TextArea("myTextArea", "This is value", new { @class = "form-control", rows = "2" })
+                                @*<textarea class="form-control" rows="3"></textarea>*@
+                            </div>
+                            <a href="#" class="btn-sm btn-lg text-dark text-center font-weight-bold text-uppercase rounded-0 padding-tb-10px padding-lr-30px background-grey-1 margin-right-20px">Go Home</a>
+                            <button type="submit" class="btn-sm btn-lg  background-main-color text-white text-center font-weight-bold text-uppercase rounded-0 padding-tb-10px padding-lr-30px">CONFIRM BOOKING</button>
+
+                        </div>
+                    </div>
+                    <!-- form -->
+
+
+                </div>
+                <!-- // col-lg-8 -->
+
+            </div>
+            <!-- // row -->
+        </div>
+        <!-- // container -->
+    </div>
+    <!-- //  page output -->
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/themes/start/jquery-ui.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
+
+
+<script type="text/javascript">
+    function categoryChangefunc(val) {
+        debugger;
+        if (val == 1) {
+            $("#hotel").show();
+            $("#Nothotel").hide();
+        }
+        else {
+            $("#Nothotel").show();
+            $("#hotel").hide();
+        }
+    }
+    $(document).ready(function () {
+      
+        $("#BookingDetail_StateId").change(function () {
+
+            var id = $(this).val();
+
+            $("#BookingDetail_CityId").empty();
+
+            $.get("FillCity", { StateId: id }, function (data) {
+
+                var v = "<option>---Select---</option>";
+
+                $.each(data, function (i, v1) {
+
+                    v += "<option value=" + v1.Value + ">" + v1.Text + "</option>";
+
+                });
+
+                $("#BookingDetail_CityId").html(v);
+
+            });
+
+        });
+
+    });
+
+</script>
+

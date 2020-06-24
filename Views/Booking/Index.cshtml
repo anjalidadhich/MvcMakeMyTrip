@@ -1,0 +1,192 @@
+﻿@*@model IEnumerable<RoleBasedAuthanticationInMvc.Models.BookingDetail>*@
+@model RoleBasedAuthanticationInMvc.Models.ProductModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="container">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputName">Category  </label>
+            @*@Html.DropDownListFor(model => model.CatId, (List<SelectListItem>)ViewBag.CategoryList, "Select One", htmlAttributes: new { @class = "form-control" })*@
+            @Html.DropDownListFor(model => model.CatId, (IEnumerable<SelectListItem>)ViewBag.CategoryList, "    --Select--", htmlAttributes: new { @class = "form-control" })
+        </div>
+    </div>
+
+</div>
+<div style="width:auto; overflow-x:auto" id="AllBooking">
+    <table class="table">
+        <tr>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.BookingDetail.City.CityName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Product.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BookingDetail.State.StateName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BookingDetail.Extra)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDetail.CheckInDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDetail.CheckOutDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDetail.DepartureDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDetail.ArrivingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDetail.NoOfPeople)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDetail.NoOfRoom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDetail.Charges)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDetail.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDetail.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDetail.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDetail.Mobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDetail.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDetail.AlternateMobile)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.ListBookingDetail)
+        {
+            <tr>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.City.CityName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.State.StateName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Extra)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.CheckInDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CheckOutDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartureDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArrivingDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoOfPeople)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoOfRoom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Charges)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mobile)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AlternateMobile)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.BookId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.BookId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.BookId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/themes/start/jquery-ui.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
+
+
+<script type="text/javascript">
+    //function categoryChangefunc(val) {
+    //    debugger;
+    //    if (val == 1) {
+    //        $("#hotel").show();
+    //        $("#Nothotel").hide();
+    //    }
+    //    else {
+    //        $("#Nothotel").show();
+    //        $("#hotel").hide();
+    //    }
+    //}
+   //$("#CatId").change(function () {
+   //         debugger;
+   //         var id = $(this).val();
+   //         //  var countryName = $("#countryId").Text();
+
+   //         $("#StateId").empty();
+   //         $("#CityId").empty();
+   //         $.get("GetBook", { countryId: id }, function (data) {
+   //             debugger;
+   //             var v = "<option>---Select State---</option>";
+
+   //             $.each(data, function (i, v1) {
+
+   //                 v += "<option value=" + v1.Value + ">" + v1.Text + "</option>";
+
+   //             });
+
+   //             $("#StateId").html(v);
+
+   //         });
+
+   //     });
+
+</script>
+
+
+

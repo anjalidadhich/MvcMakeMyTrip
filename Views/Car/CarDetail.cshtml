@@ -1,0 +1,136 @@
+﻿@model RoleBasedAuthanticationInMvc.Models.Product
+@{
+    ViewBag.Title = "CarDetail";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<!-- Page title --->
+<section class="background-grey-1 padding-tb-25px text-grey-4">
+    <div class="container">
+        <h6 class="font-weight-300 text-capitalize float-md-left font-2 padding-tb-10px">hotel details</h6>
+        <ol class="breadcrumb z-index-2 position-relative no-background padding-tb-10px padding-lr-0px  margin-0px float-md-right">
+            <li><a href="@Url.Action("Index", "Demo")" class="text-grey-4">Home</a></li>
+            <li><a href="@Url.Action("Index", "Car")" class="text-grey-4">Car List</a></li>
+            <li class="active">hotel details</li>
+        </ol>
+        <div class="clearfix"></div>
+    </div>
+</section>
+<!-- // Page title --->
+<!-- page output -->
+<div class="padding-tb-40px background-light-grey">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-8 sticky-content">
+
+                <div class="background-white border border-grey-1">
+                    <ul class="slider-1 margin-0px padding-0px list-unstyled">
+                        <li><img src="@Url.Content(Model.Image)" alt=""></li>
+                        <li><img src="~/Content/demo-img/car-details-2.jpg" alt=""></li>
+                    </ul>
+                </div>
+                <!-- // slider -->
+
+                <div class="background-white border border-grey-1 padding-30px margin-tb-30px">
+                    <h3 class="text-uppercase text-medium font-weight-700 border-bottom-1 border-second-color  padding-bottom-8px">Description</h3>
+                    <div class="padding-top-10px">
+                        <p>@Model.Description</p>
+                    </div>
+                </div>
+                <!-- // Description -->
+
+                <div class="background-white border border-grey-1 padding-30px margin-tb-30px">
+                    <h3 class="text-uppercase text-medium font-weight-700 border-bottom-1 border-second-color padding-bottom-8px">
+                        Map Location
+                    </h3>
+                    <div class="padding-top-10px">
+                        <div class="map-distributors-in" style="height:300px">
+                            <div id="map-distributors">
+
+                                <script type="text/javascript">
+                                    $(function () {
+                                        $("#map-distributors").goMap({
+                                            zoom: 6,
+                                            maptype: 'ROADMAP',
+                                            markers: [
+
+                                                {
+                                                    address: '39.605247,-104.615413',
+                                                    icon: 'images/icon_marker_1.png'
+                                                },
+
+                                            ],
+                                            hideByClick: true
+                                        });
+                                        $("#default").click(function () {
+                                            $("#dump").html($.dump($.goMap.getMarkers()));
+                                        });
+                                        $("#clearall").click(function () {
+                                            $.goMap.clearMarkers();
+                                        });
+                                        $("#json").click(function () {
+                                            $("#dump").html($.goMap.getMarkers("json"));
+                                        });
+                                        $("#data").click(function () {
+                                            $("#dump").html($.goMap.getMarkers("data"));
+                                        });
+
+                                        $('.gm-style-iw').parent().css('width', 'auto');
+
+
+                                    });
+
+                                </script>
+
+                            </div>
+                        </div>
+                        <!-- // map distributors -->
+                    </div>
+                </div>
+                <!-- // Map Location -->
+
+
+            </div>
+            <!-- // col-lg-9 -->
+            <div class="col-lg-4 sticky-sidebar">
+
+                <!-- detailed -->
+                <div class="hotel-grid background-white border border-grey-1 with-hover margin-bottom-30px">
+                    <div class="hotel-img position-relative">
+                        <div class="hover-option background-main-color opacity-6"></div>
+                        <img src="@Url.Content(Model.Image)" alt="">
+                    </div>
+                    <div class="padding-20px">
+                        <h3 class="text-uppercase text-medium"><a href="#" class="text-dark font-weight-700">@Model.Name</a></h3>
+                        <small class="text-uppercase text-extra-small">
+                            <a href="#" class="text-grey-4">
+                                <i class="fa fa-map-marker margin-right-5px"></i>
+                                <span class="text-third-color margin-right-5px">@Model.Country.CountryName</span> @Model.State.StateName
+                            </a>
+                        </small>
+                        <i class="d-block padding-tb-8px text-grey-2 ">@Model.Description</i>
+                        <div class="margin-bottom-8px text-uppercase text-extra-small">
+                            <strong class="text-medium text-third-color padding-right-5px font-weight-bold">$500</strong>Day
+                        </div>
+                        <a href="@Url.Action("Booking", "Car", new { ProId = @Model.ProId })" class="btn-sm btn-lg btn-block background-grey-2 text-white text-center font-weight-bold text-uppercase ">Booking Now </a>
+                    </div>
+                </div>
+                <!-- // detailed -->
+                <!-- Need help ? -->
+                <div class="background-second-color border border-grey-1 padding-30px margin-bottom-30px">
+                    <h3 class="text-uppercase text-medium font-weight-700 padding-bottom-8px">NEED HELP?</h3>
+                    <div class="text-uppercase text-extra-large text-white font-weight-700 padding-bottom-8px">+222 370 447 17</div>
+                    <div class="text-uppercase text-medium">Sunday to Friday 9.00am - 7.30pm</div>
+                </div>
+                <!-- // Need help  -->
+
+
+            </div>
+            <!-- // col-lg-3 -->
+        </div>
+        <!-- // row -->
+
+    </div>
+    <!-- // container -->
+</div>
+<!-- //  page output -->

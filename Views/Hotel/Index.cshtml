@@ -1,0 +1,285 @@
+﻿@*@model IEnumerable<RoleBasedAuthanticationInMvc.Models.Product>*@
+@model RoleBasedAuthanticationInMvc.Models.ProductModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>Index</h2>
+
+<!-- Page title --->
+<section class="background-grey-1 padding-tb-25px text-grey-4">
+    <div class="container">
+        <h6 class="font-weight-300 text-capitalize float-md-left font-2 padding-tb-10px">Hotel List</h6>
+        <ol class="breadcrumb z-index-2 position-relative no-background padding-tb-10px padding-lr-0px  margin-0px float-md-right">
+            <li><a href="@Url.Action("Index", "Demo")" class="text-grey-4">Home</a></li>
+            <li><a href="@Url.Action("Index", "Hotel")" class="text-grey-4">Hotel List</a></li>
+            <li class="active">Hotel List</li>
+        </ol>
+        <div class="clearfix"></div>
+    </div>
+</section>
+<!-- // Page title --->
+<!-- page output -->
+<div class="padding-tb-40px background-light-grey">
+    <div class="container">
+
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3 sticky-sidebar">
+                <!-- Hotels Search -->
+                @using (Html.BeginForm())
+                {
+                    <div class="widget">
+                        <h4 class="widget-title clearfix"><span>Hotels Search</span></h4>
+                        <div class="search-filter">
+                            <div class="form-group margin-bottom-5px">
+                                <label>Destination</label>
+                                <div class="destination">
+                                    <input type="text" class="input-text full-width" placeholder="Enter Destination">
+                                </div>
+                            </div>
+                            <div class="form-group margin-bottom-5px">
+                                <label>Check In</label>
+                                <div class="date-input">
+                                    @*<input type="text" class="input-text datepicker full-width hasDatepicker" placeholder="15 / 5 / 2017" id="dp1511378113210">*@
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "input-text datepicker full-width hasDatepicker" } })
+                                </div>
+                            </div>
+                            <div class="form-group margin-bottom-5px">
+                                <label>Check Out</label>
+                                <div class="date-input">
+                                    @*<input type="text" class="input-text datepicker full-width hasDatepicker" placeholder="15 / 5 / 2017" id="dp1511378113211">*@
+                                    @*@Html.EditorFor(model => model.CheckOutDate, new { htmlAttributes = new { @class = "input-text datepicker full-width hasDatepicker" } })*@
+                                </div>
+                            </div>
+                            <div class="row margin-bottom-10px">
+                                <div class="form-group col">
+                                    <label>Rooms</label>
+                                    <div class="rooms"><input type="text" class="input-text full-width" placeholder="1"></div>
+                                </div>
+                                <div class="form-group col">
+                                    <label>Children</label>
+                                    <div class="children"><input type="text" class="input-text full-width" placeholder="0"></div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-sm btn-lg btn-block background-main-color text-white text-center text-uppercase font-weight-600"><i class="fa fa-search"></i> Hotel  Search</button>
+                        </div>
+                    </div>
+                }
+                <!-- //  Hotels Search -->
+                <!-- Price Search -->
+                <div class="widget">
+                    <h4 class="widget-title clearfix"><span>Price</span></h4>
+                    <div class="form-check border-bottom-1 border-grey-1">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                            $0 - $50
+                        </label>
+                    </div>
+                    <div class="form-check border-bottom-1 border-grey-1">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                            $50 - $100
+                        </label>
+                    </div>
+                    <div class="form-check border-bottom-1 border-grey-1">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                            $100 - $500
+                        </label>
+                    </div>
+                    <div class="form-check border-bottom-1 border-grey-1">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                            $500 - $1000
+                        </label>
+                    </div>
+                    <div class="form-check disabled">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+                            $1000 - $10,000
+                        </label>
+                    </div>
+                    <a href="#" class="btn-sm btn-lg btn-block background-main-color text-white text-center text-uppercase font-weight-600"><i class="fa fa-search"></i> Refresh  Search</a>
+                </div>
+                <!-- Price Search -->
+                <!-- Price Search -->
+                <div class="widget">
+                    <h4 class="widget-title clearfix"><span>Facility</span></h4>
+                    <div class="form-check border-bottom-1 border-grey-1">
+                        <label class="form-check-label">
+                            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">Accessibiliy
+                        </label>
+                    </div>
+                    <div class="form-check border-bottom-1 border-grey-1">
+                        <label class="form-check-label">
+                            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="..."> Breakfast
+                        </label>
+                    </div>
+                    <div class="form-check border-bottom-1 border-grey-1">
+                        <label class="form-check-label">
+                            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="..."> Fitness center
+                        </label>
+                    </div>
+                    <div class="form-check border-bottom-1 border-grey-1">
+                        <label class="form-check-label">
+                            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="..."> Free Wifi
+                        </label>
+                    </div>
+                    <div class="form-check border-bottom-1 border-grey-1">
+                        <label class="form-check-label">
+                            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="..."> Parking
+                        </label>
+                    </div>
+                    <div class="form-check border-bottom-1 border-grey-1">
+                        <label class="form-check-label">
+                            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="..."> Pet allowed
+                        </label>
+                    </div>
+                    <div class="form-check border-bottom-1 border-grey-1">
+                        <label class="form-check-label">
+                            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="..."> Plasma TV
+                        </label>
+                    </div>
+                    <div class="form-check border-bottom-1 border-grey-1">
+                        <label class="form-check-label">
+                            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="..."> Pool
+                        </label>
+                    </div>
+                    <a href="#" class="btn-sm btn-lg btn-block background-main-color text-white text-center text-uppercase font-weight-600"><i class="fa fa-search"></i> Refresh  Search</a>
+                </div>
+            </div>
+            <!-- //  Sidebar -->
+            <!-- Content -->
+            <div class="col-lg-9">
+                <!-- hotel post -->
+                @foreach (var item in Model.ListProduct)
+                {
+                    <div class="background-white border-bottom-1 border-grey-1 with-hover box-shadow-hover margin-bottom-40px">
+                        <div class="row no-gutters">
+                            <div class="col-lg-4">
+                                <div class="hotel-img position-relative">
+                                    <img src="@Url.Content(item.Image)" alt="">
+                                    <div class="hover-option background-main-color opacity-6">
+                                        <h3 class="text-center text-white padding-top-n-25 "><i class="fa fa-building-o opacity-10"></i></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="padding-30px">
+                                    <h3 class="text-uppercase text-medium font-weight-600"><a href="@Url.Action("HotelDetail", "Hotel", new { ProId = @item.ProId })" class="text-dark">@item.Name</a></h3>
+                                    <small class="text-uppercase text-extra-small">
+                                        <a href="#" class="text-grey-4">
+                                            <i class="fa fa-map-marker margin-right-5px"></i>
+                                            <span class="text-third-color margin-right-5px">@item.State.StateName</span> @item.City.CityName
+                                        </a>
+                                    </small>
+                                    <div class="claerfix"></div>
+                                    <a href="@Url.Action("Booking", "Hotel", new { ProId = @item.ProId })" class="float-lg-right btn-sm btn-lg background-second-color text-white text-center font-weight-bold text-uppercase margin-top-0px">Booking Now </a>
+
+                                    <i class="d-block padding-tb-8px text-grey-2 ">@item.Description </i>
+                                    <div class="margin-bottom-8px text-uppercase text-extra-small">
+                                        <strong class="text-medium text-third-color padding-right-5px font-weight-bold">$500</strong>Person
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <!-- // hotel post -->
+                <!-- hotel post -->
+                <div class="background-white border-bottom-1 border-grey-1 with-hover box-shadow-hover margin-bottom-40px">
+                    <div class="row no-gutters">
+                        <div class="col-lg-4">
+                            <div class="hotel-img position-relative">
+                                <img src="~/Content/demo-img/hotel-grid-9.jpg" alt="">
+                                <div class="hover-option background-main-color opacity-6">
+                                    <h3 class="text-center text-white padding-top-n-25 "><i class="fa fa-building-o opacity-10"></i></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="padding-30px">
+                                <h3 class="text-uppercase text-medium font-weight-600"><a href="#" class="text-dark">Adel New Hotel</a></h3>
+                                <small class="text-uppercase text-extra-small">
+                                    <a href="#" class="text-grey-4">
+                                        <i class="fa fa-map-marker margin-right-5px"></i>
+                                        <span class="text-third-color margin-right-5px">United Kingdom</span> London
+                                    </a>
+                                </small>
+                                <div class="claerfix"></div>
+                                <a href="#" class="float-lg-right btn-sm btn-lg background-second-color text-white text-center font-weight-bold text-uppercase margin-top-0px">Booking Now </a>
+
+                                <i class="d-block padding-tb-8px text-grey-2 ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </i>
+                                <div class="margin-bottom-8px text-uppercase text-extra-small">
+                                    <strong class="text-medium text-third-color padding-right-5px font-weight-bold">$500</strong>Person
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- // hotel post -->
+
+
+                <ul class="pagination pagination-md ">
+                    <li class="page-item disabled"><a class="page-link rounded-0" href="#" tabindex="-1">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link rounded-0" href="#">Next</a></li>
+                </ul>
+
+
+            </div>
+            <!-- // Content -->
+        </div>
+        <!-- //  row -->
+
+    </div>
+    <!-- //  container -->
+</div>
+<!-- //  page output -->
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/themes/start/jquery-ui.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("button").click(function () {
+            debugger;
+            var id = $(this).val();
+            //  var countryName = $("#countryId").Text();
+
+            $("#StateId").empty();
+            $("#CityId").empty();
+            $.get("FillState", { countryId: id }, function (data) {
+                debugger;
+                var v = "<option>---Select State---</option>";
+
+                $.each(data, function (i, v1) {
+
+                    v += "<option value=" + v1.Value + ">" + v1.Text + "</option>";
+
+                });
+
+                $("#StateId").html(v);
+
+            });
+
+        });
+
+
+
+
+
+    });
+
+</script>
+

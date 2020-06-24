@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @*@Styles.Render("~/Content/plugins/css")*@
+    @*@Scripts.Render("~/bundles/modernizr")*@
+    @Scripts.Render("~/bundles/modernizr")
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="HTTrack is an easy-to-use website mirror utility. It allows you to download a World Wide website from the Internet to a local directory,building recursively all structures, getting html, images, and other files from the server to your computer. Links are rebuiltrelatively so that you can freely browse to the local site (works with any browser). You can mirror several sites together so that you can jump from one toanother. You can, also, update an existing mirror site, or resume an interrupted download. The robot is fully configurable, with an integrated help" />
+    <meta name="keywords" content="httrack, HTTRACK, HTTrack, winhttrack, WINHTTRACK, WinHTTrack, offline browser, web mirror utility, aspirateur web, surf offline, web capture, www mirror utility, browse offline, local  site builder, website mirroring, aspirateur www, internet grabber, capture de site web, internet tool, hors connexion, unix, dos, windows 95, windows 98, solaris, ibm580, AIX 4.0, HTS, HTGet, web aspirator, web aspirateur, libre, GPL, GNU, free software" />
+    <title>Local index - HTTrack Website Copier</title>
+
+
+
+    <title>Travelz HTML5 Multipurpose Travel Template</title>
+    <meta name="author" content="Nile-Theme">
+    <meta name="robots" content="index follow">
+    <meta name="googlebot" content="index follow">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="Travel, HTML5, CSS3, Hotel , Multipurpose, Template, Create a Travel website fast">
+    <meta name="description" content="HTML5 Multipurpose Template, Create a website fast">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800|Poppins:300i,400,300,700,400i,500|Ubuntu:300i,400,300,700,400i,500|Raleway:400,500,600,700" rel="stylesheet">
+
+    <!-- CSS Files -->
+
+
+    <link rel="stylesheet" type="text/css" href=@Url.Content("~/Content/plugins/revslider/css/settings.css")>
+
+    <!-- Owl Carousel Assets -->
+    <link href=@Url.Content("~/Content/css/owl.carousel.css") rel="stylesheet">
+    <link href=@Url.Content("~/Content/css/owl.theme.css") rel="stylesheet">
+
+    <link rel="stylesheet" href=@Url.Content("~/Content/fonts/font-awesome/css/font-awesome.min.css")>
+    <link rel="stylesheet" href=@Url.Content("~/Content/css/bootstrap.min.css")>
+    <link rel="stylesheet" href=@Url.Content("~/Content/css/travlez-jquery-ui.css")>
+    <link rel="stylesheet" href=@Url.Content("~/Content/css/style.css")>
+    <link rel="stylesheet" href=@Url.Content("~/Content/css/responsive.css")>
+
+
+  
+
+    <script  src="~/Content/js/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/js/loading.js"></script>
+
+    <!-- REVOLUTION JS FILES -->
+  
+
+    <script src="~/Content/plugins/revslider/js/jquery.themepunch.tools.min.js"></script>
+    <script src="~/Content/plugins/revslider/js/jquery.themepunch.revolution.min.js"></script>
+
+
+
+
+    <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+    <script src="~/Content/plugins/revslider/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="~/Content/plugins/revslider/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="~/Content/plugins/revslider/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="~/Content/plugins/revslider/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="~/Content/plugins/revslider/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="~/Content/plugins/revslider/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="~/Content/plugins/revslider/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="~/Content/plugins/revslider/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="~/Content/plugins/revslider/js/extensions/revolution.extension.video.min.js"></script>
+
+    <style type="text/css">
+
+        #rev_slider_3_1_wrapper .tp-loader.spinner4 {
+            background-color: #ffffff !important;
+        }
+
+        .hephaistos .tp-bullet {
+            width: 12px;
+            height: 12px;
+            position: absolute;
+            background: rgba(153, 153, 153, 0);
+            border: 3px solid rgba(29, 184, 193, 0.9);
+            border-radius: 50%;
+            cursor: pointer;
+            box-sizing: content-box;
+            box-shadow: 0px 0px 2px 1px rgba(130, 130, 130, 0.3)
+        }
+
+            .hephaistos .tp-bullet:hover,
+            .hephaistos .tp-bullet.selected {
+                background: rgba(255, 255, 255, 0);
+                border-color: rgba(220, 36, 38, 1)
+            }
+    </style>
+    <style id="theia-sticky-sidebar-stylesheet-TSS">
+        .theiaStickySidebar:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading bar -->
+    @Html.Partial("_LoadingBar")
+
+    <!-- // Loading bar -->
+    <!-- ======= Header  ======= -->
+    @Html.Partial("_Header")
+    <!-- ======= end Header  ======= -->
+    <!-- =======  Rev Slider  ======= -->
+    @Html.Partial("_RevSlider")
+
+    <!-- END REVOLUTION SLIDER -->
+    <script type="text/javascript">
+        var tpj = jQuery;
+
+        var revapi3;
+        tpj(document).ready(function () {
+            if (tpj("#rev_slider_3_1").revolution == undefined) {
+                revslider_showDoubleJqueryError("#rev_slider_3_1");
+            } else {
+                revapi3 = tpj("#rev_slider_3_1").show().revolution({
+                    sliderType: "standard",
+                    jsFileLocation: "//localhost/revslider-standalone/revslider/public/assets/js/",
+                    sliderLayout: "auto",
+                    dottedOverlay: "none",
+                    delay: 9000,
+                    navigation: {
+                        keyboardNavigation: "off",
+                        keyboard_direction: "horizontal",
+                        mouseScrollNavigation: "off",
+                        mouseScrollReverse: "default",
+                        onHoverStop: "off",
+                        bullets: {
+                            enable: true,
+                            hide_onmobile: false,
+                            style: "hephaistos",
+                            hide_onleave: false,
+                            direction: "horizontal",
+                            h_align: "center",
+                            v_align: "bottom",
+                            h_offset: 0,
+                            v_offset: 20,
+                            space: 5,
+                            tmp: ''
+                        }
+                    },
+                    responsiveLevels: [1240, 1024, 778, 480],
+                    visibilityLevels: [1240, 1024, 778, 480],
+                    gridwidth: [1170, 1024, 778, 480],
+                    gridheight: [555, 555, 500, 500],
+                    lazyType: "none",
+                    shadow: 0,
+                    spinner: "spinner4",
+                    stopLoop: "off",
+                    stopAfterLoops: -1,
+                    stopAtSlide: -1,
+                    shuffle: "off",
+                    autoHeight: "off",
+                    disableProgressBar: "on",
+                    hideThumbsOnMobile: "off",
+                    hideSliderAtLimit: 0,
+                    hideCaptionAtLimit: 0,
+                    hideAllCaptionAtLilmit: 0,
+                    debugMode: false,
+                    fallbacks: {
+                        simplifyAll: "off",
+                        nextSlideOnWindowFocus: "off",
+                        disableFocusListener: false,
+                    }
+                });
+            }
+        }); /*ready*/
+
+    </script>
+    <!-- ======= end Rev Slider  ======= -->
+    <!-- ======= Search Filter  ======= -->
+    @Html.Partial("_SearchFilter")
+
+    <!-- ======= end Search Filter  ======= -->
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+    </div>
+    <!-- ======= New Hotels  ======= -->
+    @Html.Partial("_NewHotels")
+
+    <!-- ======= end New Hotels  ======= -->
+    <!-- ======= top cities  ======= -->
+    @Html.Partial("_TopCities")
+
+    <!-- ======= end top cities  ======= -->
+    <!-- ======= Footer  ======= -->
+    @Html.Partial("_Footer")
+
+    <!-- ======= end Footer  ======= -->
+    <script type="text/javascript" src="~/Content/js/sticky-sidebar.js"></script>
+    <script type="text/javascript" src="~/Content/js/custom.js"></script>
+    <script src="~/Content/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="~/Content/js/popper.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/bootstrap.min.js"></script>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

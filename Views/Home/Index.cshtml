@@ -1,0 +1,252 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+     Layout = "~/Views/shared/_Layout1.cshtml";
+}
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800|Poppins:300i,400,300,700,400i,500|Ubuntu:300i,400,300,700,400i,500|Raleway:400,500,600,700" rel="stylesheet">
+<!-- CSS Files -->
+<!-- Owl Carousel Assets -->
+<link href="css/owl.carousel.css" rel="stylesheet">
+<link href="css/owl.theme.css" rel="stylesheet">
+
+<link rel="stylesheet" href="~/Content/fonts/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/css/travlez-jquery-ui.css">
+<link rel="stylesheet" href="~/Content/css/style.css">
+<link rel="stylesheet" href="~/Content/css/flag-icon.min.css">
+<link rel="stylesheet" href="~/Content/css/sb-admin.css">
+<link rel="stylesheet" href="~/Content/css/responsive.css">
+<script type="text/javascript" src="~/Content/js/jquery-3.2.1.min.js"></script>
+
+<div class="background-light-grey">
+
+    <div class="container padding-tb-50px">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark background-main-color" id="mainNav">
+            <a class="navbar-brand" href="dashboard-home.html">dashboard</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav navbar-sidenav background-third-color" id="exampleAccordion">
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                        <a class="nav-link" href="dashboard-home.html">
+                            <i class="fa fa-fw fa-dashboard"></i>
+                            <span class="nav-link-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="My items">
+                        <a class="nav-link" href="dashboard-my-items.html">
+                            <i class="fa fa-fw fa-table"></i>
+                            <span class="nav-link-text">My items</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="My Favorites">
+                        <a class="nav-link" href="dashboard-my-favorites.html">
+                            <i class="fa fa-fw fa-heart"></i>
+                            <span class="nav-link-text">My Favorites</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Reviews">
+                        <a class="nav-link" href="dashboard-reviews.html">
+                            <i class="fa fa-fw fa-star"></i>
+                            <span class="nav-link-text">Reviews</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="My Profile">
+                        <a class="nav-link" href="dashboard-my-profile.html">
+                            <i class="fa fa-fw fa-user-circle"></i>
+                            <span class="nav-link-text">My Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
+                            <i class="fa fa-fw fa-file"></i>
+                            <span class="nav-link-text">Example Pages</span>
+                        </a>
+                        <ul class="sidenav-second-level collapse" id="collapseExamplePages">
+                            <li>
+                                <a href="dashboard-packages.html">Packages</a>
+                            </li>
+                            <li>
+                                <a href="dashboard-404-page.html">404 Page</a>
+                            </li>
+                            <li>
+                                <a href="dashboard-blank.html">Blank Page</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+                            <i class="fa fa-fw fa-sitemap"></i>
+                            <span class="nav-link-text">Menu Levels</span>
+                        </a>
+                        <ul class="sidenav-second-level collapse" id="collapseMulti">
+                            <li>
+                                <a href="#">Second Level Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Second Level Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Second Level Item</a>
+                            </li>
+                            <li>
+                                <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>
+                                <ul class="sidenav-third-level collapse" id="collapseMulti2">
+                                    <li>
+                                        <a href="#">Third Level Item</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third Level Item</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third Level Item</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav sidenav-toggler">
+                    <li class="nav-item">
+                        <a class="nav-link text-center" id="sidenavToggler">
+                            <i class="fa fa-fw fa-angle-left"></i>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fa fa-fw fa-sign-out"></i>Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="content-wrapper">
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6 margin-bottom-30px">
+                        <a class="d-block padding-20px background-orange">
+                            <h6 class="text-white margin-0px font-weight-400">
+                                <i class="fa fa-building-o text-title-large margin-bottom-10px opacity-5 d-block"></i>
+                                <span class="font-3">150</span>
+                                <span class="margin-left-10px">Booking of hotels</span>
+                            </h6>
+                        </a>
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-6 margin-bottom-30px">
+                        <a class="d-block padding-20px background-second-color">
+                            <h6 class="text-white margin-0px font-weight-400">
+                                <i class="fa fa-automobile text-title-large margin-bottom-10px opacity-5 d-block"></i>
+                                <span class="font-3">150</span>
+                                <span class="margin-left-10px">Car Rental</span>
+                            </h6>
+                        </a>
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-6 margin-bottom-30px">
+                        <a class="d-block padding-20px background-lime">
+                            <h6 class="text-white margin-0px font-weight-400">
+                                <i class="fa fa-plane text-title-large margin-bottom-10px opacity-5 d-block"></i>
+                                <span class="font-3">150</span>
+                                <span class="margin-left-10px">Booking Flight</span>
+                            </h6>
+                        </a>
+                    </div>
+
+
+                    <div class="col-12">
+
+                        <div class="alert alert-success">
+                            <strong>Success!</strong> Indicates a successful or positive action.
+                        </div>
+
+                        <div class="alert alert-danger">
+                            <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+                        </div>
+
+                        <!-- -->
+                        <div class="background-white border-1 border-grey-1 margin-bottom-35px padding-30px">
+                            <h4 class="table-title margin-bottom-30px"><span>Latest Activities</span></h4>
+                            <ul class="commentlist padding-0px margin-0px list-unstyled text-grey-3">
+                                <li class="border-bottom-1 border-grey-1 margin-bottom-20px">
+                                    <div class="padding-bottom-15px">
+                                        <a class="d-block text-dark text-medium" href="#"><span class="text-red">Rabie Elkheir</span> Liked the last comment you </a>
+                                        <span class="text-extra-small">Date :  <a href="#" class="text-main-color">July 15, 2016</a></span>
+                                    </div>
+                                </li>
+                                <li class="border-bottom-1 border-grey-1 margin-bottom-20px">
+                                    <div class="padding-bottom-15px">
+                                        <a class="d-block text-dark text-medium" href="#"><span class="text-red">Adel Alsaeed</span> Liked the last comment you </a>
+                                        <span class="text-extra-small">Date :  <a href="#" class="text-main-color">July 15, 2016</a></span>
+                                    </div>
+                                </li>
+                                <li class="border-bottom-1 border-grey-1 margin-bottom-20px">
+                                    <div class="padding-bottom-15px">
+                                        <a class="d-block text-dark text-medium" href="#"><span class="text-red">Jamal Ali</span> Liked the last comment you </a>
+                                        <span class="text-extra-small">Date :  <a href="#" class="text-main-color">July 15, 2016</a></span>
+                                    </div>
+                                </li>
+                                <li class="border-bottom-1 border-grey-1 margin-bottom-20px">
+                                    <div class="padding-bottom-15px">
+                                        <a class="d-block text-dark text-medium" href="#"><span class="text-red">Rabie Elkheir</span> Liked the last comment you </a>
+                                        <span class="text-extra-small">Date :  <a href="#" class="text-main-color">July 15, 2016</a></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- -->
+
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container-fluid-->
+            <!-- /.content-wrapper-->
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+                <i class="fa fa-angle-up"></i>
+            </a>
+            <!-- Logout Modal-->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-primary" href="login.html">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bootstrap core JavaScript-->
+        </div>
+
+
+
+    </div>
+</div>
+
+
+<!-- Footer -->
+
+<!-- ======= end Footer  ======= -->
+<script type="text/javascript" src="~/Content/js/sticky-sidebar.js"></script>
+<script type="text/javascript" src="~/Content/js/custom.js"></script>
+<script src="~/Content/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="~/Content/js/jquery-ui.js"></script>
+<script type="text/javascript" src="~/Content/js/popper.min.js"></script>
+<script type="text/javascript" src="~/Content/js/bootstrap.min.js"></script>

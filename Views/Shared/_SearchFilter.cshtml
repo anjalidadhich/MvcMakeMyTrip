@@ -1,0 +1,211 @@
+﻿@model RoleBasedAuthanticationInMvc.Models.Product
+<div class="container">
+    <div class="row">
+        <div class="col-lg-5">
+
+            <div id="search-filter-in" class="full-width position-absolute sm-position-relative bottom-80px sm-bottom-auto">
+                <div class="search-filter row no-gutters box-shadow sm-tb-40px">
+                    <div class="filter-tabs  col-lg-5 background-second-color">
+                        <img class="hidden-xs" src="images/img-1.jpg" alt="">
+                        <ul class="nav nav-tabs flex-column" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#home" role="tab"><i class="fa fa-hotel"></i> Hotels</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#profile" role="tab"><i class="fa fa-plane"></i> Flights</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#messages" role="tab"><i class="fa fa-cab"></i> Cars</a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    @*<div class="filter-tabs  col-lg-5 background-second-color">
+                            <img class="hidden-xs" src="~/Content/images/img-1.jpg" alt="">
+                            <ul class="nav nav-tabs flex-column" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#home" role="tab"><i class="fa fa-hotel"></i> Hotels</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#profile" role="tab"><i class="fa fa-plane"></i> Flights</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#messages" role="tab"><i class="fa fa-cab"></i> Cars</a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>*@
+                    <div class="filter-output booking-form-box col-lg-7">
+                        <!-- Tab panes -->
+
+                        <div class="tab-content  padding-30px background-white">
+
+                            <div class="tab-pane active" id="home" role="tabpanel">
+                                @using (Html.BeginForm("Index", "Demo", new { CatId = "1" }, FormMethod.Post))
+                                {
+                                    <div class="form-group margin-bottom-5px">
+                                        <label>Destination</label>
+                                        <div class="destination">
+                                            @Html.DropDownList("CityId", (IEnumerable<SelectListItem>)ViewBag.CityList, "--Select--", htmlAttributes: new { @class = "js-example-tags form-control" })
+                                          
+                                        </div>
+                                    </div>
+                                    <div class="form-group margin-bottom-5px">
+                                        <label>Check In</label>
+                                        <div class="date-input">
+                                            @*<input type="text" class="input-text datepicker full-width" placeholder="15 / 5 / 2017">*@
+                                            @Html.EditorFor(model => model.CheckInDate, new { htmlAttributes = new { @class = "input-text datepicker full-width" } })
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group margin-bottom-5px">
+                                        <label>Check Out</label>
+                                        <div class="date-input">
+                                            @*<input type="text" class="input-text datepicker full-width" placeholder="15 / 5 / 2017">*@
+                                            @Html.EditorFor(model => model.CheckOutDate, new { htmlAttributes = new { @class = "input-text datepicker full-width" } })
+                                        </div>
+                                    </div>
+                                    <div class="row margin-bottom-10px">
+                                        <div class="form-group col">
+                                            <label>Rooms</label>
+                                            <div class="rooms">
+                                                @Html.EditorFor(model => model.NoOfRoom, new { htmlAttributes = new { @class = "input-text full-width" } })
+                                                @*<input type="text" class="input-text full-width" placeholder="1">*@
+                                            </div>
+                                        </div>
+                                        <div class="form-group col">
+                                            <label>Children</label>
+                                            <div class="children">
+                                                @*<input type="text" class="input-text full-width" placeholder="0">*@
+                                                @Html.EditorFor(model => model.NoOfPeople, new { htmlAttributes = new { @class = "input-text full-width" } })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn-sm btn-lg btn-block background-main-color text-white text-center text-uppercase font-weight-600"><i class="fa fa-search"></i> Hotel  Search</button>
+                                }
+                            </div>
+
+                            <div class="tab-pane" id="profile" role="tabpanel">
+                                <!-- ====== Flights ====== -->
+                                @*<form action="@Url.Action("Search", "Flight")" id="form" method="post" >*@
+                                @using (Html.BeginForm("Index", "Demo", new { CatId = "3" }, FormMethod.Post))
+                                {
+                                    <div class="form-group margin-bottom-5px">
+                                        <label>Flying from:</label>
+                                        <div class="destination">
+                                            @Html.EditorFor(model => model.From, new { htmlAttributes = new { @class = "input-text full-width" } })
+                                            @*<input type="text" class="input-text full-width" placeholder="Flying from">*@
+                                        </div>
+                                    </div>
+                                    <div class="form-group margin-bottom-5px">
+                                        <label>Flying to:</label>
+                                        <div class="destination">
+                                            @*<input type="text" class="input-text full-width" placeholder="Flying to">*@
+                                            @Html.EditorFor(model => model.To, new { htmlAttributes = new { @class = "input-text full-width" } })
+                                        </div>
+                                    </div>
+                                    <div class="form-group margin-bottom-5px">
+                                        <label>Departing:</label>
+                                        <div class="date-input">
+                                            @*<input type="text" class="input-text datepicker full-width" placeholder="15 / 5 / 2017">*@
+                                            @Html.EditorFor(model => model.DepartureDate, new { htmlAttributes = new { @class = "input-text datepicker full-width" } })
+                                        </div>
+                                    </div>
+                                    <div class="form-group margin-bottom-25px">
+                                        <label>Returning:</label>
+                                        <div class="date-input">
+                                            @*<input type="text" class="input-text datepicker full-width" placeholder="15 / 5 / 2017">*@
+                                            @Html.EditorFor(model => model.ArrivingDate, new { htmlAttributes = new { @class = "input-text datepicker full-width" } })
+                                        </div>
+                                    </div>
+                                    <button type="submit" id="btnSend" class="btn-sm btn-lg btn-block background-main-color text-white text-center text-uppercase font-weight-600"><i class="fa fa-search"></i> Flights  Search</button>
+                                }
+                                @*</form>*@
+                                <!-- ====== //  Flights ====== -->
+                            </div>
+                            <div class="tab-pane" id="messages" role="tabpanel">
+                                <!-- ====== Cars ====== -->
+                                @using (Html.BeginForm("Index", "Demo", new { CatId = "4" }, FormMethod.Post))
+                                {
+                                    <div class="form-group  margin-bottom-5px">
+                                        <label>Location:</label>
+                                        <div class="destination">
+                                            @Html.EditorFor(model => model.From, new { htmlAttributes = new { @class = "input-text full-width" } })
+                                            @*<input type="text" class="input-text full-width" placeholder="Location">*@
+                                        </div>
+                                    </div>
+                                    <div class="form-group  margin-bottom-5px">
+                                        <label>Type of car :</label>
+                                        <div class="destination">
+                                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "input-text full-width" } })
+                                            @*<input type="text" class="input-text full-width" placeholder="Type of car">*@
+                                        </div>
+                                    </div>
+                                    <div class="form-group  margin-bottom-5px">
+                                        <label>Pick up Date:</label>
+                                        <div class="date-input">
+                                            @Html.EditorFor(model => model.ArrivingDate, new { htmlAttributes = new { @class = "input-text datepicker full-width" } })
+                                            @*<input type="text" class="input-text datepicker full-width" placeholder="15 / 5 / 2017">*@
+                                        </div>
+                                    </div>
+                                    <div class="form-group margin-bottom-25px">
+                                        <label>Drop off Date:</label>
+                                        <div class="date-input">
+                                            @Html.EditorFor(model => model.DepartureDate, new { htmlAttributes = new { @class = "input-text datepicker full-width" } })
+                                            @*<input type="text" class="input-text datepicker full-width" placeholder="15 / 5 / 2017">*@
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn-sm btn-lg btn-block background-main-color text-white text-center text-uppercase font-weight-600"><i class="fa fa-search"></i> Cars  Search</button>
+                                }
+                                <!-- ====== //  Cars ====== -->
+                            </div>
+                        </div>
+                        <!-- Tab panes -->
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+@*need to add below link for select2*@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/css/select2.min.css" rel="stylesheet" />  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/js/select2.min.js"></script>
+<script type="text/javascript">
+    $(".js-example-tags").select2({
+  tags: true
+});
+      
+    $(document).ready(function () {
+
+     // alert(  $("#City_CityName").val());
+   })
+
+    @*$(document).ready(function () {
+     $("#btnSend").click(function (e) {
+        alert("button click");
+         e.preventDefault();
+         debugger;
+        var model = @Model;//@Html.Raw(Json.Encode(Model))
+        $.ajax({
+            type: 'post',
+            url: '@Url.Action("Search", "Flight")',
+            data: JSON.stringify({ Product: model }),
+            contentType: 'application/json; charset=utf-8',
+            dataType: "json",
+            success: function (data) {
+                debugger;
+                alert(data);
+            }
+        });
+        });
+    });*@
+
+</script>
+

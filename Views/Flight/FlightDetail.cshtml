@@ -1,0 +1,96 @@
+﻿@model RoleBasedAuthanticationInMvc.Models.Product
+@{
+    ViewBag.Title = "FlightDetail";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<!-- Page title --->
+<section class="background-grey-1 padding-tb-25px text-grey-4">
+    <div class="container">
+        <h6 class="font-weight-300 text-capitalize float-md-left font-2 padding-tb-10px">flight details</h6>
+        <ol class="breadcrumb z-index-2 position-relative no-background padding-tb-10px padding-lr-0px  margin-0px float-md-right">
+            <li><a href="@Url.Action("Index", "Demo")" class="text-grey-4">Home</a></li>
+            <li><a href="@Url.Action("Index", "Flight")" class="text-grey-4">Flight List</a></li>
+            <li class="active">flight details</li>
+        </ol>
+        <div class="clearfix"></div>
+    </div>
+</section>
+<!-- // Page title --->
+<!-- page output -->
+<div class="padding-tb-40px background-light-grey">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-8 sticky-content">
+
+                <div class="background-white border border-grey-1">
+                    <ul class="slider-1 margin-0px padding-0px list-unstyled">
+                        <li><img src="@Url.Content(Model.Image)" alt=""></li>
+                        <li><img src="~/Content/demo-img/flight-details-2.jpg" alt=""></li>
+                        <li><img src="~/Content/demo-img/flight-details-3.jpg" alt=""></li>
+                    </ul>
+                </div>
+                <!-- // slider -->
+
+                <div class="background-white border border-grey-1 padding-30px margin-tb-30px">
+                    <h3 class="text-uppercase text-medium font-weight-700 border-bottom-1 border-second-color  padding-bottom-8px">Description</h3>
+                    <div class="padding-top-10px">
+                        <p>Lorem ipsum dolor sit amet, mauris suspendisse viverra eleifend tortor tellus suscipit, tortor aliquet at nulla mus, dignissim neque, nulla neque. Ultrices proin mi urna nibh ut, aenean sollicitudin etiam libero nisl, ultrices ridiculus in magna purus consequuntur, ipsum donec orci ad vitae pede, id odio. Turpis venenatis at laoreet. Etiam commodo fusce in diam feugiat, nullam suscipit tortor per! Orci in, eleifend venenatis lacus tincidunt nisl malesuada tristique, cum egestas vel ac dapibus euismod suspendisse. Lorem ipsum dolor sit amet, mauris suspendisse viverra eleifend tortor tellus suscipit, tortor aliquet at nulla mus, dignissim neque, nulla neque. Ultrices proin mi urna nibh ut, aenean sollicitudin etiam libero nisl, ultrices ridiculus in magna purus consequuntur. </p>
+                    </div>
+                </div>
+                <!-- // Description -->
+
+            </div>
+            <!-- // col-lg-8 -->
+            <div class="col-lg-4 sticky-sidebar">
+
+                <!-- detailed -->
+                <div class="hotel-grid background-white border border-grey-1 with-hover margin-bottom-30px">
+                    <div class="hotel-img position-relative">
+                        <img src="@Url.Content(Model.Image)" alt="">
+                        <div class="hover-option background-main-color opacity-6">
+                            <h3 class="text-center text-white padding-top-n-25 "></h3>
+                        </div>
+                    </div>
+                    <div class="padding-20px">
+                        <h3 class="text-uppercase text-medium"><a href="#" class="text-dark font-weight-700">@Model.Name</a></h3>
+                        <small class="d-block text-uppercase text-extra-small margin-bottom-10px">
+                            <a href="#" class="text-grey-4">
+                                <i class="fa fa-chevron-up margin-right-5px"></i>
+                                Desparture :  <span class="text-third-color margin-right-5px">@Model.DepartureDate</span>
+                            </a>
+                        </small>
+                        <small class="d-block text-uppercase text-extra-small">
+                            <a href="#" class="text-grey-4">
+                                <i class="fa fa-chevron-down margin-right-5px"></i>
+                                Return :  <span class="text-third-color margin-right-5px">@Model.ArrivingDate</span>
+                            </a>
+                        </small>
+                        <i class="d-block padding-tb-8px text-grey-2 "><span class="margin-right-30px">from: @Model.From</span>to: @Model.To</i>
+                        <div class="claerfix"></div>
+                        <div class="margin-top-8px padding-top-8px text-uppercase text-extra-small border-top-1 border-grey-1">
+                            <strong class="text-medium text-third-color padding-right-5px font-weight-bold">$@Model.Charges</strong>Person
+                            <i class="d-block padding-tb-8px text-grey-2"><span class="margin-right-40px">Oneway flight</span> 2 Sotp</i>
+                        </div>
+                        <a href="@Url.Action("Booking", "Car", new { ProId = @Model.ProId })" class="btn-sm btn-lg btn-block background-main-color text-white text-center font-weight-bold text-uppercase ">Booking Now </a>
+                    </div>
+                </div>
+                <!-- // detailed -->
+                <!-- Need help ? -->
+                <div class="background-second-color border border-grey-1 padding-30px margin-bottom-30px">
+                    <h3 class="text-uppercase text-medium font-weight-700 padding-bottom-8px">NEED HELP?</h3>
+                    <div class="text-uppercase text-extra-large text-white font-weight-700 padding-bottom-8px">+222 370 447 17</div>
+                    <div class="text-uppercase text-medium">Sunday to Friday 9.00am - 7.30pm</div>
+                </div>
+                <!-- // Need help  -->
+
+
+            </div>
+            <!-- // col-lg-3 -->
+        </div>
+        <!-- // row -->
+
+    </div>
+    <!-- // container -->
+</div>
+<!-- //  page output -->
